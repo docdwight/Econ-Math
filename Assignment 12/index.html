@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+
+    </head>
+    <body>
+        
+        <h1>Math Assignment #12</h1>
+        <h2>Comments</h2> 
+        
+        <p>
+            <br>Public Domain Source Code Used  kerimdzhanov/random.js  
+            <br>From:  https://gist.github.com/kerimdzhanov/7529623    
+            <br>Random Integer Generation function (get random number in a specific range)
+        </p>
+
+        <h2>Source Code</h2>    
+        
+        <p>View Page Source</p>
+
+
+        <h2>Variables & Results</h2>
+        
+        <div id="demo"></div>
+        
+        <script>
+    
+            /**
+             * Get a random floating point number between `min` and `max`.
+             * 
+             * @param {number} min - min number
+             * @param {number} max - max number
+             * @return {float} a random floating point number
+             */
+            function getRandom(min, max) {
+              return Math.random() * (max - min) + min;
+            }
+
+            /**
+             * Get a random integer between `min` and `max`.
+             * 
+             * @param {number} min - min number
+             * @param {number} max - max number
+             * @return {int} a random integer
+             */
+            function getRandomInt(min, max) {
+              return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+ 
+            // 
+
+            var items1 = ["Granola", "Greek Yogurt", "Flu Shots", "Lexus Automobile", "Hoddies", "Jeans", "Jackets", "Steak", "Peanut Butter", "Shirts", "Dress Shoes"];
+            
+            var items2 = ["Ramen Noodles", "Saltines", "Hotdogs", "Yugo Automobile", "Potatos", "Tennis Shoes", "Pencils", "Tractors", "Garden Hose","Sunglasses", "Tires"];
+
+            var itemG0 = items1[getRandomInt(0,items1.length-1)];         
+            
+            
+            // Price & Quantity Variable Setup
+            
+            var temp, Q0, Q1, Y0, Y1, q1DeltaQ, q2AvgQ, q3DeltaY, q4AvgY, q5Elast = null;
+
+            while (Q0 == Q1) {
+                Q0 = getRandomInt(1,50);
+                Q1 = getRandomInt(1,50);  
+            }
+
+            while (Y0 == Y1) {
+                Y0 = ((getRandomInt(0,16))*5000)+20000;
+                Y1 = ((getRandomInt(0,16))*5000)+20000;
+            }
+            
+
+            
+            // Arithmetic --------------------
+            
+            // question 1
+            q1DeltaQ = Q0 - Q1;
+            // question 2
+            q2AvgQ = (Q0 + Q1)/2;
+            // question 3
+            q3DeltaY = Y0 - Y1;
+            // question 4
+            q4AvgY = (Y0 + Y1)/2;
+            // question 5 - answer rounded to hundreds 
+            q5Elast = Math.round((q1DeltaQ/q3DeltaY) * (q4AvgY/q2AvgQ)*100)/100;
+
+            
+            document.getElementById("demo").innerHTML = "Q0:" + Q0;
+            document.getElementById("demo").innerHTML += "<BR>Q1:" + Q1; 
+            document.getElementById("demo").innerHTML += "<BR>Y0:" + Y0;
+            document.getElementById("demo").innerHTML += "<BR>Y1:" + Y1;
+            document.getElementById("demo").innerHTML += "<BR>q1DeltaQ:" + q1DeltaQ;
+            document.getElementById("demo").innerHTML += "<BR>q2AvgQ:" + q2AvgQ;
+            document.getElementById("demo").innerHTML += "<BR>q3DeltaY:" + q3DeltaY;
+            document.getElementById("demo").innerHTML += "<BR>q4AvgY:" + q4AvgY;
+            document.getElementById("demo").innerHTML += "<BR>q5Elast:" + q5Elast;  
+            document.getElementById("demo").innerHTML += "<BR>itemG0:" + itemG0;
+       
+        </script>
+    </body>
+</html>
+
+
