@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html>
-    
+
     <head>
 
     </head>
     <body>
-        
+
         <h1>Math Assignment #10</h1>
         <h2>Comments</h2>
         <p>
         Need assistance with question #7
-        </p>        
-        
+        </p>
+
         <p>
-            <br>Public Domain Source Code Used  kerimdzhanov/random.js  
-            <br>From:  https://gist.github.com/kerimdzhanov/7529623    
+            <br>Public Domain Source Code Used  kerimdzhanov/random.js
+            <br>From:  https://gist.github.com/kerimdzhanov/7529623
             <br>Random Integer Generation function (get random number in a specific range)
         </p>
 
-        <h2>Source Code</h2>    
-        
+        <h2>Source Code</h2>
+
         <p>View Page Source</p>
 
 
         <h2>Variables & Results</h2>
-        
+
         <div id="demo"></div>
-        
+
         <script>
-    
+
             /**
              * Get a random floating point number between `min` and `max`.
-             * 
+             *
              * @param {number} min - min number
              * @param {number} max - max number
              * @return {float} a random floating point number
@@ -42,7 +42,7 @@
 
             /**
              * Get a random integer between `min` and `max`.
-             * 
+             *
              * @param {number} min - min number
              * @param {number} max - max number
              * @return {int} a random integer
@@ -50,28 +50,30 @@
             function getRandomInt(min, max) {
               return Math.floor(Math.random() * (max - min + 1) + min);
             }
- 
-            // 
+
+            //
 
             var items1 = ["Granola", "Greek Yogurt", "Flu Shots", "Lexus Automobile", "Hoddies", "Jeans", "Jackets", "Steak", "Peanut Butter", "Shirts", "Dress Shoes"];
-            
-            var items2 = ["Ramen Noodles", "Saltines", "Hotdogs", "Yugo Automobile", "Potatos", "Tennis Shoes", "Pencils", "Tractors", "Garden Hose","Sunglasses", "Tires"];
-            
-            var priceIncreases = [0.5,1.0,1.5,2.0,2.5,3.0]; 
 
-            
+            var items2 = ["Ramen Noodles", "Saltines", "Hotdogs", "Yugo Automobile", "Potatos", "Tennis Shoes", "Pencils", "Tractors", "Garden Hose","Sunglasses", "Tires"];
+
+            var priceIncreases = [0.5,1.0,1.5,2.0,2.5,3.0];
+
+            var temp, Q0, Q1, P0, P1, PI, q1DeltaQ, q2AvgQ, q3DeltaP, q4AvgP, q5Elast = null;
+
             // Price & Quantity Variable Setup
-            
-            var temp, Q0, Q1, P0, P1, PI, q1DeltaQ, q2AvgQ, q3DeltaP, q4AvgP, q5Elast, q7DeltaP, q7AvgP, q7Elast = null;
+
+            pctPI = priceIncreases[getRandomInt(0,priceIncreases.length-1)];
+            itemG0 = items1[getRandomInt(0,items1.length-1)];
 
             while (Q0 == Q1) {
                 Q0 = getRandomInt(1,50);
-                Q1 = getRandomInt(1,50);  
+                Q1 = getRandomInt(1,50);
             }
 
             while (P0 == P1) {
                 P0 = getRandomInt(1,20);
-                P1 = getRandomInt(1,20);  
+                P1 = getRandomInt(1,20);
             }
 
             if (Q1 < Q0 && P1 < P0) {
@@ -85,11 +87,9 @@
                 P1 = P0;
                 P0 = temp;
             }
-            
-            pctPI = priceIncreases[getRandomInt(0,priceIncreases.length-1)];
-            
+
             // Arithmetic --------------------
-            
+
             // question 1
             q1DeltaQ = Q0 - Q1;
             // question 2
@@ -98,27 +98,25 @@
             q3DeltaP = P0 - P1;
             // question 4
             q4AvgP = (P0 + P1)/2;
-            // question 5 - answer rounded to hundreds 
+            // question 5 - answer rounded to hundreds
             q5Elast = Math.round((q1DeltaQ/q3DeltaP) * (q4AvgP/q2AvgQ)*100)/100;
             // question 7
             q7DeltaP = P0 - (P0 - (P0 * 1.02));
             q7AvgP = (P0 + (P0 * 1.02))/2;
             q7Elast = Math.round((q1DeltaQ/q7DeltaP) * (q4AvgP/q2AvgQ)*100)/100;
-            
+
             document.getElementById("demo").innerHTML = "Q0:" + Q0;
-            document.getElementById("demo").innerHTML += "<BR>Q1:" + Q1; 
+            document.getElementById("demo").innerHTML += "<BR>Q1:" + Q1;
             document.getElementById("demo").innerHTML += "<BR>P0:" + P0;
             document.getElementById("demo").innerHTML += "<BR>P1:" + P1;
             document.getElementById("demo").innerHTML += "<BR>q1DeltaQ:" + q1DeltaQ;
             document.getElementById("demo").innerHTML += "<BR>q2AvgQ:" + q2AvgQ;
             document.getElementById("demo").innerHTML += "<BR>q3DeltaP:" + q3DeltaP;
             document.getElementById("demo").innerHTML += "<BR>q4AvgP:" + q4AvgP;
-            document.getElementById("demo").innerHTML += "<BR>q5Elast:" + q5Elast;  
-            document.getElementById("demo").innerHTML += "<BR>itemG0:" + items1[getRandomInt(0,items1.length-1)];
-            document.getElementById("demo").innerHTML += "<BR>pctPI:" + pctPI;    
-        
+            document.getElementById("demo").innerHTML += "<BR>q5Elast:" + q5Elast;
+            document.getElementById("demo").innerHTML += "<BR>itemG0:" + itemG0;
+            document.getElementById("demo").innerHTML += "<BR>pctPI:" + pctPI;
+
         </script>
     </body>
 </html>
-
-
